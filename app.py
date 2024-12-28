@@ -55,6 +55,8 @@ def validate_inputs(start_date, end_date):
     return True
 
 def generate_summary(df):
+    if len(df) == 0:
+        return ''
     trading_days = len(df)
     average_profit = df.Return.mean()
     return f"During selected days, we have {trading_days} trading days with average profit {average_profit}"
